@@ -1,4 +1,6 @@
 import React from 'react';
+
+import '../../Assets/CSS/NavBar.css'
 import PropTypes from 'prop-types';
 import AppBar from '@material-ui/core/AppBar';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -16,7 +18,12 @@ import MenuIcon from '@material-ui/icons/Menu';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
-
+import DashboardIcon from '@material-ui/icons/Dashboard';
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import LocalOfferIcon from '@material-ui/icons/LocalOffer';
+import AccountTreeIcon from '@material-ui/icons/AccountTree';
+import StoreIcon from '@material-ui/icons/Store';
+import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
 const drawerWidth = 210;
 
 const useStyles = makeStyles((theme) => ({
@@ -72,6 +79,7 @@ function Sidebar(props) {
     setMobileOpen(!mobileOpen);
   };
 
+
   const drawer = (
     <div>
       <div className={classes.toolbar} />
@@ -81,23 +89,15 @@ function Sidebar(props) {
           </Typography>
         </div>
       {/* <Divider /> */}
-      <List>
-        {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-            <ListItemText primary={text} />
+      <List style={{marginTop:'20px',padding:'15px',color:'#303030'}}>
+        {[{name:'Dashboard',icon:<DashboardIcon fontSize='small'/>}, {name:'Orders',icon:<ShoppingCartIcon fontSize='small'/>}, {name:'Products',icon:<LocalOfferIcon fontSize='small' />}, {name:'Integrations',icon:<AccountTreeIcon fontSize='small' />},{name:'Stores',icon:<StoreIcon fontSize='small' />},{name:'Offers',icon:<AttachMoneyIcon fontSize='small' />}].map((object) => (
+          <ListItem button key={object.name}>
+            <ListItemIcon>{object.icon}</ListItemIcon>
+            <ListItemText style={{fontSize:'0rem !important'}} primary={object.name} />
           </ListItem>
         ))}
       </List>
-      <Divider />
-      <List>
-        {['All mail', 'Trash', 'Spam'].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
-      </List>
+      
     </div>
   );
 

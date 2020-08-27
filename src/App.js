@@ -17,7 +17,7 @@ function App() {
     <Router  history={hist}>
        <Switch>
         <Route component={SignIn} exact path='/'/> 
-        <Route component={Dashboard} exact path='/home'/> 
+        <Route component={Dashboard}  path='/home'/> 
 
          {/* <ProtectedRoute  component={Dashboard}  path='/home' /> */}
 
