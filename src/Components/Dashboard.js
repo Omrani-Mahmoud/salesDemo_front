@@ -27,6 +27,7 @@ import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
 import { Switch, Route, Link } from 'react-router-dom';
 import Home from './Dashboard_components/Home';
 import Orders from './Orders/Orders';
+import Shopify from './Integrations/Shopify/Shopify';
 const drawerWidth = 210;
 
 const useStyles = makeStyles((theme) => ({
@@ -92,7 +93,7 @@ function Dashboard(props) {
       {/* <Divider /> */}
       <List style={{marginTop:'20px',padding:'15px',color:'#303030'}}>
         {[{name:'Dashboard',icon:<DashboardIcon fontSize='small'/>,path:'/home'}, {name:'Orders',icon:<ShoppingCartIcon fontSize='small'/>,path:'/home/orders'}, {name:'Products',icon:<LocalOfferIcon fontSize='small' />,path:'/home/products'}, {name:'Integrations',icon:<AccountTreeIcon fontSize='small' />,path:'/home/integrations'},{name:'Stores',icon:<StoreIcon fontSize='small' />,path:'/home/stores'},{name:'Offers',icon:<AttachMoneyIcon fontSize='small' />,path:'/home/offers'}].map((object) => (
-          <Link to={object.path}><ListItem button key={object.name}>
+          <Link to={object.path} className='dash_links'><ListItem button key={object.name}>
             <ListItemIcon>{object.icon}</ListItemIcon>
             <ListItemText style={{fontSize:'0rem !important'}} primary={object.name} />
           </ListItem>
@@ -159,6 +160,7 @@ function Dashboard(props) {
        <Switch>
            <Route exact path='/home' component={Home}/>
            <Route  path='/home/orders' component={Orders}/>
+           <Route  path='/home/integrations' component={Shopify}/>
            {/* <Route exact path='/home' component={}/> */}
        </Switch>
       </main>

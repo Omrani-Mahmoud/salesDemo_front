@@ -1,3 +1,9 @@
 .MuiTypography-body1{
     font-size: 14px !important;
+
+}
+
+.dash_links{
+    text-decoration: none;
+    color: inherit;
 }
