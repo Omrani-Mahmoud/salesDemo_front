@@ -28,6 +28,7 @@ import { Switch, Route, Link } from 'react-router-dom';
 import Home from './Dashboard_components/Home';
 import Orders from './Orders/Orders';
 import Shopify from './Integrations/Shopify/Shopify';
+import Top_bar from './Dashboard_components/Top_bar';
 const drawerWidth = 210;
 
 const useStyles = makeStyles((theme) => ({
@@ -64,6 +65,8 @@ const useStyles = makeStyles((theme) => ({
     flexGrow:1,
     paddingTop:'100px',
     padding: theme.spacing(3),
+    backgroundColor:'rgb(248,249,253)',
+    minHeight:'100vh'
   },
   drawerHeader: {
     display: 'flex',
@@ -78,7 +81,7 @@ function Dashboard(props) {
   const classes = useStyles();
   const theme = useTheme();
   const [mobileOpen, setMobileOpen] = React.useState(false);
-
+  const [isMobile, setisMobile] = React.useState(false)
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
@@ -90,7 +93,11 @@ function Dashboard(props) {
             Logistio
           </Typography>
         </div>
-      {/* <Divider /> */}
+        <div hidden={!isMobile}>
+        <Top_bar isMobile={isMobile}/>
+        </div>
+      {isMobile && <Divider/>}
+  
       <List style={{marginTop:'20px',padding:'15px',color:'#303030'}}>
         {[{name:'Dashboard',icon:<DashboardIcon fontSize='small'/>,path:'/home'}, {name:'Orders',icon:<ShoppingCartIcon fontSize='small'/>,path:'/home/orders'}, {name:'Products',icon:<LocalOfferIcon fontSize='small' />,path:'/home/products'}, {name:'Integrations',icon:<AccountTreeIcon fontSize='small' />,path:'/home/integrations'},{name:'Stores',icon:<StoreIcon fontSize='small' />,path:'/home/stores'},{name:'Offers',icon:<AttachMoneyIcon fontSize='small' />,path:'/home/offers'}].map((object) => (
           <Link to={object.path} className='dash_links'><ListItem button key={object.name}>
@@ -105,6 +112,14 @@ function Dashboard(props) {
   );
 
   const container = window !== undefined ? () => window().document.body : undefined;
+
+  React.useEffect(() => {
+    if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
+      setisMobile(true)
+    }
+   
+  }, [])
+
     return (
         <div className={classes.root}>
         <CssBaseline />
@@ -119,10 +134,11 @@ function Dashboard(props) {
             >
               <MenuIcon />
             </IconButton>
-      
-    
+              <div  style={{display:!isMobile ?'flex':'none',width:'100%'}}>
+              <Top_bar isMobile={isMobile}/>
+              </div>
           </Toolbar>
-          
+   
         </AppBar>
         <nav className={classes.drawer} aria-label="mailbox folders">
           {/* The implementation can be swapped with js to avoid SEO duplication of links. */}

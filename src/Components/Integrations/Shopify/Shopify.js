@@ -9,6 +9,7 @@ import clsx from 'clsx';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import Alert from '@material-ui/lab/Alert';
 import Button from '@material-ui/core/Button';
+import createApp from '@shopify/app-bridge-react';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -53,6 +54,7 @@ const useStyles = makeStyles((theme) => ({
   
 function Shopify() {
     const classes = useStyles();
+    const [shopifyLink, setShopifyLink] = React.useState("");
 
     let img_container = {
         width:'100%',
@@ -77,6 +79,21 @@ function Shopify() {
         fontSize:'14px'
   
       }
+
+
+      const submitForm = () => {
+        const apiKey = 'b28178c89b54f44a9c0b2c5849af8c3a';
+        const redirectUri = `https://cartifio.com/dashboard/integrations`;
+        const permissionUrl =`/oauth/authorize?client_id=${apiKey}&scope=read_content,write_content, read_themes, write_themes, read_products, write_products, read_customers, write_customers, read_orders, write_orders, read_script_tags, write_script_tags, read_fulfillments, write_fulfillments, read_shipping, write_shipping&redirect_uri=${redirectUri}`;
+        if (window.top === window.self) {
+          window.location.assign(`${shopifyLink}/admin${permissionUrl}`)
+      }
+     else {
+      const app = createApp({
+        apiKey: apiKey,
+        shopOrigin: `${shopifyLink}`,
+      });
+    }}
     return (
         <Grid container md={12} xs={12} >
             <Grid item md={12} xs={10}>
@@ -104,6 +121,7 @@ function Shopify() {
                         label='  Shopify Store Link :'
                         id="standard-start-adornment"
                         placeholder='mystore.shopify'
+                        onChange={(e)=>setShopifyLink(e.target.value)}
                         className={clsx(classes.margin, classes.txtInput)}
                         InputProps={{
                             startAdornment: <InputAdornment style={fixed_values_style} position="start"><span style={span_values} >Https://</span></InputAdornment>,
