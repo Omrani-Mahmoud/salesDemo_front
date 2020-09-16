@@ -63,15 +63,15 @@ function Shopify() {
     }
 
     let fixed_values_style={
-        backgroundColor:'#303030',
+        backgroundColor:'rgb(232,232,232)',
         height:'100%',
-        padding:'3px',
+        padding:'4px',
         borderRadius:'3px',
     }
 
     let span_values = {
-      color:'white',
-      fontSize:'14px'
+      color:'black',
+      fontSize:'13px',
 
     }
     let note_container = {
@@ -125,7 +125,7 @@ function Shopify() {
                         className={clsx(classes.margin, classes.txtInput)}
                         InputProps={{
                             startAdornment: <InputAdornment style={fixed_values_style} position="start"><span style={span_values} >Https://</span></InputAdornment>,
-                            // endAdornment:<InputAdornment  style={fixed_values_style} position="end"><span style={span_values}>.com</span></InputAdornment>
+                            endAdornment:<InputAdornment  style={fixed_values_style} position="end"><span style={span_values}>.com</span></InputAdornment>
                         }}
                 />
  <Button

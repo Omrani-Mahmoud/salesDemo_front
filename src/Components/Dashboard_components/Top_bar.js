@@ -127,4 +127,4 @@ function Top_bar({isMobile}) {
     )
 }
 
-export default Top_bar
+export default React.memo(Top_bar)

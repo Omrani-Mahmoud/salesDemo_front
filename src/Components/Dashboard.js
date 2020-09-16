@@ -29,6 +29,9 @@ import Home from './Dashboard_components/Home';
 import Orders from './Orders/Orders';
 import Shopify from './Integrations/Shopify/Shopify';
 import Top_bar from './Dashboard_components/Top_bar';
+import Stores from './Stores/Stores';
+import ProductsContainer from './Products/ProductsContainer';
+import OrdersContainer from './Orders/OrdersContainer';
 const drawerWidth = 210;
 
 const useStyles = makeStyles((theme) => ({
@@ -77,7 +80,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 function Dashboard(props) {
-    const { window } = props;
+
+  const { window } = props;
   const classes = useStyles();
   const theme = useTheme();
   const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -100,7 +104,8 @@ function Dashboard(props) {
   
       <List style={{marginTop:'20px',padding:'15px',color:'#303030'}}>
         {[{name:'Dashboard',icon:<DashboardIcon fontSize='small'/>,path:'/home'}, {name:'Orders',icon:<ShoppingCartIcon fontSize='small'/>,path:'/home/orders'}, {name:'Products',icon:<LocalOfferIcon fontSize='small' />,path:'/home/products'}, {name:'Integrations',icon:<AccountTreeIcon fontSize='small' />,path:'/home/integrations'},{name:'Stores',icon:<StoreIcon fontSize='small' />,path:'/home/stores'},{name:'Offers',icon:<AttachMoneyIcon fontSize='small' />,path:'/home/offers'}].map((object) => (
-          <Link to={object.path} className='dash_links'><ListItem button key={object.name}>
+          <Link to={object.path} className='dash_links' key={object.name}>
+            <ListItem button key={object.name}>
             <ListItemIcon>{object.icon}</ListItemIcon>
             <ListItemText style={{fontSize:'0rem !important'}} primary={object.name} />
           </ListItem>
@@ -175,8 +180,10 @@ function Dashboard(props) {
         <div className={classes.toolbar} />
        <Switch>
            <Route exact path='/home' component={Home}/>
-           <Route  path='/home/orders' component={Orders}/>
+           <Route  path='/home/orders' component={OrdersContainer}/>
            <Route  path='/home/integrations' component={Shopify}/>
+           <Route  path='/home/stores' component={Stores}/>
+           <Route  path='/home/products' component={ProductsContainer}/>
            {/* <Route exact path='/home' component={}/> */}
        </Switch>
       </main>
@@ -185,4 +192,4 @@ function Dashboard(props) {
     );
   }
 
-export default Dashboard
+export default React.memo(Dashboard)

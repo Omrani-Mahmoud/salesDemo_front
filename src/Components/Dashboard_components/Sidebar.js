@@ -166,4 +166,4 @@ Sidebar.propTypes = {
   window: PropTypes.func,
 };
 
-export default Sidebar;
+export default React.memo(Sidebar);
