@@ -47,6 +47,7 @@ function Top_bar({isMobile}) {
         display:'flex',
         alignItems:isMobile?'':'center',
         flexDirection:isMobile?'column-reverse':'row',
+        
     }
 
     const span_style = {
@@ -78,11 +79,11 @@ function Top_bar({isMobile}) {
 >
                 <div style={div_style}>
 
+                <InputLabel style={{color:'#303030',opacity:'80%',fontSize:'15px'}}>Current store :</InputLabel>
 
               
                 <FormControl className={classes.formControl} size='small'>
-                <InputLabel style={{color:'#8f8f8f'}}>Active store</InputLabel>
-
+                
                         <NativeSelect disableUnderline
                         
                         defaultValue={10}

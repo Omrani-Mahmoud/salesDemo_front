@@ -49,6 +49,8 @@ const useStyles = makeStyles((theme) => ({
       width: `calc(100% - ${drawerWidth}px)`,
       marginLeft: drawerWidth,
       backgroundColor:'white',
+      boxShadow:'10px 0px 12px -20px rgba(0,0,0,0.2), 0px 4px 5px -3px rgba(0,0,0,0.14), 0px 1px 10px 0px rgba(0,0,0,0.12)'
+
 
     },
   },
