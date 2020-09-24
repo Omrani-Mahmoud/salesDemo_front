@@ -19,7 +19,7 @@ import Store_FormContainer from './components/Form/Store_FormContainer';
 
 const useStyles = makeStyles({
     table: {
-      minWidth: 650,
+      minWidth: 320,
     },
   });
 

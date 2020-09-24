@@ -1,7 +1,8 @@
 import React from 'react'
 import Orders from './Orders'
+import Grid from '@material-ui/core/Grid';
 
-function OrdersContainer() {
+function OrdersContainer({isMobile}) {
 
     const [active_tab, setactive_tab] = React.useState(0);
     const handleChange_tab = (event, newValue) => {
@@ -13,7 +14,9 @@ function OrdersContainer() {
         {oid:'234235235Z',name:'Frozen yoghurt', created_at:'15/03/2030', status:'created', num_times:24, post_code:4.0,custumer_name:'mah',state:'Shiped'},
       ];
     return (
-        <Orders data={data} active_tab={active_tab} handleChange={handleChange_tab}/>
+   
+            <Orders data={data} active_tab={active_tab} handleChange={handleChange_tab} isMobile={isMobile}/>
+         
     )
 }
 

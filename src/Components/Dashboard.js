@@ -32,6 +32,7 @@ import Top_bar from './Dashboard_components/Top_bar';
 import Stores from './Stores/Stores';
 import ProductsContainer from './Products/ProductsContainer';
 import OrdersContainer from './Orders/OrdersContainer';
+import { Grid } from '@material-ui/core';
 const drawerWidth = 210;
 
 const useStyles = makeStyles((theme) => ({
@@ -71,7 +72,8 @@ const useStyles = makeStyles((theme) => ({
     paddingTop:'100px',
     padding: theme.spacing(3),
     backgroundColor:'rgb(248,249,253)',
-    minHeight:'100vh'
+    minHeight:'100vh',
+    width:'100%'
   },
   drawerHeader: {
     display: 'flex',
@@ -179,15 +181,20 @@ function Dashboard(props) {
           </Hidden>
         </nav>
         <main className={classes.content}>
+   
         <div className={classes.toolbar} />
-       <Switch>
-           <Route exact path='/home' component={Home}/>
-           <Route  path='/home/orders' component={OrdersContainer}/>
-           <Route  path='/home/integrations' component={Shopify}/>
-           <Route  path='/home/stores' component={Stores}/>
-           <Route  path='/home/products' component={ProductsContainer}/>
-           {/* <Route exact path='/home' component={}/> */}
-       </Switch>
+        <Grid item  md={12} xs={12} >
+          <Switch>
+              <Route exact path='/home' component={Home}/>
+              <Route  path='/home/orders'   render={(props) => (
+                          <OrdersContainer {...props} isMobile={isMobile} />
+                        )} />
+              <Route  path='/home/integrations' component={Shopify}/>
+              <Route  path='/home/stores' component={Stores}/>
+              <Route  path='/home/products' component={ProductsContainer}/>
+              {/* <Route exact path='/home' component={}/> */}
+          </Switch>
+       </Grid>
       </main>
 
       </div>

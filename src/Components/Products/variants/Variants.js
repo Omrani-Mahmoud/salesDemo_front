@@ -28,7 +28,7 @@ function Variants({index,deleteVariant,commit_changes_options,object,commit_chan
     const classes = useStyles();
 
     return (
-        <Grid item xs={6}>
+        <Grid item md={6} xs={12}>
        
                 <FormControl className={classes.formControl}>
   

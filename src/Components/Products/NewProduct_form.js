@@ -56,7 +56,7 @@ function NewProduct_form({open_form,handleClose,display_variants,handle_display_
         <DialogTitle id="max-width-dialog-title">New product</DialogTitle>
         <DialogContent>
         <Grid container spacing={3}>
-              <Grid item xs={6}>
+              <Grid item md={6} xs={12}>
                     <section >
                       <FileInput />
                       <Button size="small" style={btn_style_add_variants} onClick={()=>{handle_display_variants(true)}} disabled={display_variants}>
@@ -67,7 +67,7 @@ function NewProduct_form({open_form,handleClose,display_variants,handle_display_
                       }
                     </section>
               </Grid>
-              <Grid item xs={6}>
+              <Grid item md={6} xs={12}>
                     <section >
                       <TextField id="outlined-basic" size="small" label="Product name" variant="outlined" fullWidth style={{paddingBottom:'15px'}} onChange={(e)=>{handle_inputs('name',e.target.value)}}/>
                       <TextField id="outlined-basic" size="small" label="Url" variant="outlined" fullWidth style={{paddingBottom:'15px'}} onChange={(e)=>{handle_inputs('url',e.target.value)}}/>

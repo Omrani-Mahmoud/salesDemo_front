@@ -162,14 +162,17 @@ function Products({handleChangeFilter,products}) {
           </section>
          <NewProduct_form_container />
 
- <Accordion style={{width:'90%'}}>
 
+
+
+  <Grid item xs={12} md={12}style={{width:'100%'}}>
+  <Accordion >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
-            <section style={{width:'250px'}}>
+            <section style={{width:'100%'}}>
                 <Avatar alt="gun" src={'https://images-na.ssl-images-amazon.com/images/I/51waAR5%2BWYL._AC_UL1200_.jpg'}  variant='square'/>
                 <Typography className={classes.heading}>Portal Gun</Typography>
             </section>
@@ -251,14 +254,15 @@ function Products({handleChangeFilter,products}) {
         </Button>
         </AccordionActions>
       </Accordion>
+  
 
-      <Accordion style={{width:'90%'}}>
+      <Accordion >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2a-content"
           id="panel2a-header"
         >
-            <section style={{width:'250px'}}>
+            <section style={{width:'100%'}}>
                 <Avatar alt="gun" src={'https://d1fmx1rbmqrxrr.cloudfront.net/cnet/i/edit/2020/04/iphone-se-2020-black-770.jpg'}  variant='square'/>
                 <Typography className={classes.heading}>Iphone SE 2020</Typography>
             </section>
@@ -303,13 +307,13 @@ function Products({handleChangeFilter,products}) {
         </AccordionActions>
       </Accordion>
 
-      <Accordion style={{width:'90%'}}>
+      <Accordion >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2a-content"
           id="panel2a-header"
         >
-           <section style={{width:'250px'}}>
+           <section style={{width:'100%'}}>
                 <Avatar alt="gun" src={'https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/MWP22?wid=2000&hei=2000&fmt=jpeg&qlt=95&op_usm=0.5,0.5&.v=1591634795000'}  variant='square'/>
                 <Typography className={classes.heading}>Airpods pro 2</Typography>
             </section>
@@ -355,7 +359,8 @@ function Products({handleChangeFilter,products}) {
         </Button>
         </AccordionActions>
       </Accordion>
-     
+      </Grid>
+
         </Grid>
     )
 }

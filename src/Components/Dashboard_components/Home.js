@@ -29,7 +29,7 @@ function Home() {
 
     return (
         <Grid container  direction="column"
-            
+            md={12} xs={12}
         >
             
                
@@ -38,19 +38,25 @@ function Home() {
                 <span style={{fontSize:'22px',color:'#303030',fontWeight:'bold'}}>Welcome,Omrani</span>
                 </Grid>        
 
-                <Grid item  md={8} xs={12} style={{display:'flex',justifyContent:'space-around'}}>
-                    <Dash_Card  icon={<ArchiveIcon fontSize='large' color='action'/>} title={'Products number'} data={41}/>
-                    <Dash_Card  icon={<TimelineIcon fontSize='large' color='action'/>} title={'Orders fulfilled'} data={283}/>
+                <Grid item  md={12} xs={12} style={{display:'flex',justifyContent:'space-around',marginBottom:'15px'}}>
+
                     
+                        <Dash_Card  icon={<ArchiveIcon fontSize='large' color='action'/>} title={'Products number'} data={41}/>
+     
+                   
+                        <Dash_Card  icon={<TimelineIcon fontSize='large' color='action'/>} title={'Orders fulfilled'} data={283}/>
+ 
                 </Grid>
 
-                <Grid item  md={12} style={{marginTop:'50px'}}>
+                <Grid item  md={12} xs={12}>
                     <span style={{fontSize:'17px',color:'#303030',fontWeight:'bold'}}>Orders fulfilled daily</span>
                 <Card elevation={0} style={{margin:'20px',padding:'7px'}}>
+             
                     <Line
-                        height='80px'
+                        height='180px'
                         data={data}
                         options={{
+                            maintainAspectRatio : false,
                             scales : {
                                 xAxes : [ {
                                     gridLines : {
@@ -75,6 +81,7 @@ function Home() {
                             }
                         }}
                     />
+           
                               </Card>
                 </Grid>
       

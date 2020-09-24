@@ -96,7 +96,7 @@ function Shopify() {
     }}
     return (
         <Grid container md={12} xs={12} >
-            <Grid item md={12} xs={10}>
+            <Grid item md={12} xs={12}>
             <Paper className={classes.paper} elevation={2} xs={12}>
                 <div style={{padding:'10px'}}>
                 <Alert severity="info">
@@ -117,6 +117,7 @@ function Shopify() {
                 <Grid item style={{padding:'20px',marginTop:'10px' }} md={12} xs={12} >
                 
                 <TextField
+                        
                         style= {{padding:'5px'}}
                         label='  Shopify Store Link :'
                         id="standard-start-adornment"
