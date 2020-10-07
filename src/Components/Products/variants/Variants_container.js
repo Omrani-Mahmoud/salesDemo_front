@@ -44,7 +44,7 @@ function Variants_container({save_variants}) {
 
     return (
       
-        <Grid item md={6} xs={12}>
+        <Grid item md={12} xs={12}>
             
                 <section >
                     <IconButton aria-label="delete"  size="small" style={{float:'right'}} onClick={()=>{add_new_variant()}}>

@@ -10,6 +10,7 @@ import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
+import { Link } from 'react-router-dom';
 const useStyles = makeStyles((theme) => ({
     formControl: {
       margin: theme.spacing(1),
@@ -58,7 +59,7 @@ function Top_bar({isMobile}) {
         cursor:'pointer'
     }
 
-    const menu_item  ={fontSize:'13px'}
+    const menu_item  ={fontSize:'13px',textDecoration:'none',color:'black'}
 
 
 
@@ -120,8 +121,8 @@ function Top_bar({isMobile}) {
                         open={Boolean(open)}
                         onClose={handleCloseMenu}
                         >
-                        <MenuItem style={menu_item} onClick={handleCloseMenu}>Profile</MenuItem>
-                        <MenuItem style={menu_item} onClick={handleCloseMenu}>My stores</MenuItem>
+                        <Link to='/home/profile' style={{textDecoration:'none'}}><MenuItem style={menu_item} onClick={handleCloseMenu}>Settings</MenuItem></Link>
+                        <Link to='/home/stores' style={{textDecoration:'none'}}><MenuItem style={menu_item} onClick={handleCloseMenu}>My stores</MenuItem></Link>
                         <MenuItem style={menu_item} onClick={handleCloseMenu}>Logout</MenuItem>
                 </Menu>
              </Grid>

@@ -33,6 +33,9 @@ import Stores from './Stores/Stores';
 import ProductsContainer from './Products/ProductsContainer';
 import OrdersContainer from './Orders/OrdersContainer';
 import { Grid } from '@material-ui/core';
+import Profile from './Account/Profile';
+import ProfileContainer from './Account/ProfileContainer';
+import StoreSettingsContainer from './Account/Store settings/StoreSettingsContainer';
 const drawerWidth = 210;
 
 const useStyles = makeStyles((theme) => ({
@@ -192,6 +195,8 @@ function Dashboard(props) {
               <Route  path='/home/integrations' component={Shopify}/>
               <Route  path='/home/stores' component={Stores}/>
               <Route  path='/home/products' component={ProductsContainer}/>
+              <Route  path='/home/profile' component={ProfileContainer }/>
+              <Route  path='/home/store/settings' component={StoreSettingsContainer }/>
               {/* <Route exact path='/home' component={}/> */}
           </Switch>
        </Grid>

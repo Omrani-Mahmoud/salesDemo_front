@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react'
 import Dash_Card from '../Other/Dash_Card'
 import Grid from '@material-ui/core/Grid';
 
@@ -6,8 +6,12 @@ import ArchiveIcon from '@material-ui/icons/Archive';
 import TimelineIcon from '@material-ui/icons/Timeline';
 import {Line,} from 'react-chartjs-2';
 import Card from '@material-ui/core/Card';
+import Carousel_ from './Carousel_';
+
 
 function Home() {
+    
+    const [hasIntegration, sethasIntegration] = useState(true);
     
     const data = {
         labels: ['January', 'February', 'March',
@@ -27,9 +31,12 @@ function Home() {
 
 
 
+
+    
+
     return (
         <Grid container  direction="column"
-            md={12} xs={12}
+            md={12} xs={12} 
         >
             
                
@@ -38,6 +45,10 @@ function Home() {
                 <span style={{fontSize:'22px',color:'#303030',fontWeight:'bold'}}>Welcome,Omrani</span>
                 </Grid>        
 
+
+{
+                hasIntegration && 
+                    <>
                 <Grid item  md={12} xs={12} style={{display:'flex',justifyContent:'space-around',marginBottom:'15px'}}>
 
                     
@@ -83,7 +94,16 @@ function Home() {
                     />
            
                               </Card>
+                              
                 </Grid>
+             
+                <Grid md={12} xs={12} style={{display:'flex',justifyContent:'center',alignItems:'center',flexDirection:"column"}} >
+                
+                    <Carousel_ />
+                </Grid>
+                </>
+            }
+           
       
         </Grid>
     )
