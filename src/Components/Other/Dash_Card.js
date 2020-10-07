@@ -48,7 +48,7 @@ function Dash_Card({icon,title,data}) {
         opacity:'90%'
     }
     return (
-      <Grid item  md={3} xs={6} style={{marginRight:'4px'}} >
+      <Grid item  md={3} xs={12} style={{marginRight:'4px'}} >
         <Card elevation={0} className={classes.root}>
                     <div className={classes.details}>
                     <CardMedia className={classes.cover} >

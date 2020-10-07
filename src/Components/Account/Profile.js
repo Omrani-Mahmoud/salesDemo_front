@@ -9,18 +9,18 @@ function Profile(props) {
     return (
         <div>
             <Grid container spacing={3}>
-            <Grid item xs={6}>
+            <Grid item xs={12} sm={6}>
                     <Paper >
                         <User />
                         <CreditCardsButtonContainer handelShowCards={props.handelShowCards}/>
                     </Paper>
             </Grid>
-            <Grid item xs={6}>
+            <Grid item xs={12} sm={6}>
                     <Paper>
                             <Account_infoContainer />
                     </Paper>
             </Grid>
-            <Grid item xs={12} hidden={props.showCards}>
+            <Grid item xs={12} sm={12} hidden={props.showCards}>
                     <Paper>
                         <CreditCardsContainer />
                     </Paper>

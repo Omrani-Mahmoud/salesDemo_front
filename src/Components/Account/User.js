@@ -63,12 +63,12 @@ function User() {
        <Link to="/home/store/settings" style={link_style}><Button size="small" variant='contained' style={store_settings_btn}>
           Store settings
         </Button></Link> 
-            <Grid item xs={6}>
+            <Grid item xs={12} sm={6}>
                 
                     <Avatar alt="Remy Sharp" src="https://cdn.radiofrance.fr/s3/cruiser-production/2019/10/22f8d83b-2dbb-4156-8f6d-9cc13b94e16f/838_rickmorty.jpg"  className={classes.large} />
                     
             </Grid>
-            <Grid item xs={6}>
+            <Grid item xs={12} sm={6}>
                 <div style={{display:'flex',justifyContent:'center',alignItems:'center',flexDirection:'column',padding:'25px'}}>
                     <span style={user}>Omrani mahmoud</span>
                     <span style={userName}>{`@${'mah'}`}</span>
