@@ -62,7 +62,7 @@ function Account_info({account_info,dispatch,save}) {
     const classes = useStyles();
 
     return (
-        <form className={classes.form} noValidate onSubmit={save}>
+        <form className={classes.form} noValidate >
         <Grid container spacing={2} style={{padding:'25px'}}>
           <Grid item xs={12} sm={6}>
             <TextField
@@ -195,11 +195,11 @@ function Account_info({account_info,dispatch,save}) {
         
 
           <Button
-          type="submit"
           fullWidth
           variant="contained"
           color="primary"
           className={classes.submit}
+          onClick={save}
         >
           save
         </Button>
