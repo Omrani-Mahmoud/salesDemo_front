@@ -7,8 +7,8 @@ import TimelineIcon from '@material-ui/icons/Timeline';
 import {Line,} from 'react-chartjs-2';
 import Card from '@material-ui/core/Card';
 import Carousel_ from './Carousel_';
-
-
+import LocalAtmIcon from '@material-ui/icons/LocalAtm';
+import ImportExportIcon from '@material-ui/icons/ImportExport';
 function Home() {
     
     const [hasIntegration, sethasIntegration] = useState(true);
@@ -36,30 +36,31 @@ function Home() {
 
     return (
         <Grid container  direction="column"
-            md={12} xs={12} 
+            md={12} xs={12} sm={12} 
         >
             
                
 
-                <Grid item style={{paddingBottom:'24px'}} >
+                <Grid item style={{paddingBottom:'2px'}} >
                 <span style={{fontSize:'22px',color:'#303030',fontWeight:'bold'}}>Welcome,Omrani</span>
+
+               
                 </Grid>        
 
 
-{
-                hasIntegration && 
-                    <>
+
+                     <span style={{fontSize:'14px',color:'#303030',fontWeight:'bold',marginBottom:'20px',marginTop:'20px',opacity:'50%',display:'flex',alignItems:'center'}}>Your current expenses : CNY 50.0 <ImportExportIcon style={{fontSize:'20px'}} /></span>
                 <Grid item  md={12} xs={12} style={{display:'flex',justifyContent:'space-around',marginBottom:'15px'}}>
 
                     
-                        <Dash_Card  icon={<ArchiveIcon fontSize='large' color='action'/>} title={'Products number'} data={41}/>
-     
-                   
-                        <Dash_Card  icon={<TimelineIcon fontSize='large' color='action'/>} title={'Orders fulfilled'} data={283}/>
- 
+                        <Dash_Card  icon={<ArchiveIcon fontSize='large' style={{color:'#eddd8c',fontSize:'40px'}}/>} title={'Products number'} data={41}/>
+                        <Dash_Card  icon={<LocalAtmIcon color='action' style={{color:'#85bb65',fontSize:'40px'}}/>} title={'Revenue'} data={'283$'}/>
+                        <Dash_Card  icon={<TimelineIcon fontSize='large' style={{color:'#3f37b0',fontSize:'40px'}}/>} title={'Orders fulfilled'} data={283} />
+                        
+                       
                 </Grid>
 
-                <Grid item  md={12} xs={12}>
+                <Grid item  md={11} xs={12}>
                     <span style={{fontSize:'17px',color:'#303030',fontWeight:'bold'}}>Orders fulfilled daily</span>
                 <Card elevation={0} style={{margin:'20px',padding:'7px'}}>
              
@@ -101,8 +102,8 @@ function Home() {
                 
                     <Carousel_ />
                 </Grid>
-                </>
-            }
+             
+            
            
       
         </Grid>

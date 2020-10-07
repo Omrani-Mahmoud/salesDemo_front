@@ -22,10 +22,11 @@ const useStyles = makeStyles((theme) => ({
       flex: '1 0 auto',
     },
     cover: {
-      width: 80,
       display:'flex',
-      justifyContent:'center',
-      alignItems:'center'
+      justifyContent:'flex-start',
+      alignItems:'center',
+      paddingTop:'10px',
+      paddingLeft:'10px'
     },
     controls: {
       display: 'flex',
@@ -50,6 +51,9 @@ function Dash_Card({icon,title,data}) {
       <Grid item  md={3} xs={6} style={{marginRight:'4px'}} >
         <Card elevation={0} className={classes.root}>
                     <div className={classes.details}>
+                    <CardMedia className={classes.cover} >
+                            {icon}
+                    </CardMedia>
                         <CardContent className={classes.content}>
                         <Typography component="h5" variant="h5" style={title_style}>
                             {title}
@@ -60,9 +64,7 @@ function Dash_Card({icon,title,data}) {
                         </CardContent>
                         
                     </div>
-                    <CardMedia className={classes.cover}>
-                            {icon}
-                    </CardMedia>
+                   
          </Card>
       </Grid>
     )
