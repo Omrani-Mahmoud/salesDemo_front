@@ -4,9 +4,11 @@ import StoreSettings from './StoreSettings'
 
 const initialState = {
     fulfillment_processing:'',
+    days:0,
     risky_order_processing:'',
     daily_charge_limit:null,
-    isChecked:false
+    isChecked_charge_limit:false,
+    global_config:false
 }
 const reducer = (state,action)=>{
 
@@ -17,8 +19,12 @@ const reducer = (state,action)=>{
                 return{...state,risky_order_processing:action.value};
                 case 'daily_charge_limit':
                     return{...state,daily_charge_limit:action.value};
-                    case 'isChecked':
-                        return{...state,isChecked:action.value};
+                    case 'isChecked_charge_limit':
+                        return{...state,isChecked_charge_limit:action.value};
+                        case 'days':
+                            return{...state,days:action.value};
+                            case 'global_config':
+                                return{...state,global_config:action.value};
                 
         default:
             return state;

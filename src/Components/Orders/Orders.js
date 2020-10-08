@@ -55,7 +55,7 @@ function Orders({data,active_tab,handleChange,isMobile}) {
             </Typography>
             <Grid  item xs={11} md={12}spacing={3} style={{padding:'10px 10px 25px 10px'}}>
             <Typography component="div">
-                      <span style={{color:'#303030',opacity:'50%'}}>Filter by status :</span>
+                      <span style={{color:'#303030',opacity:'50%',fontWeight:'bold'}}>Filter by status :</span>
                 
                 
                 {
@@ -74,12 +74,12 @@ function Orders({data,active_tab,handleChange,isMobile}) {
                 <MenuItem value={'processing'}>Processing</MenuItem>
                 <MenuItem value={'shipped'}>Shipped</MenuItem>
                 <MenuItem value={'received'}>Received</MenuItem>
-                <MenuItem value={'canclled'}>Canclled</MenuItem>
+                <MenuItem value={'canceled'}>Canceled</MenuItem>
                 </Select>
 
                 :
                   
-                              <Paper elevation={2} style={{display:'flex',justifyContent:'center',alignItems:'center'}} >
+                              <Paper elevation={2} style={{display:'flex',justifyContent:'center',alignItems:'center',marginTop:'10px'}} >
                                       <Tabs
                                         value={active_tab}
                                         indicatorColor="primary"
@@ -92,7 +92,7 @@ function Orders({data,active_tab,handleChange,isMobile}) {
                                           <Tab label="Processing" style={tab_style} icon={<AutorenewIcon fontSize='small'/>}/>
                                           <Tab label="Shipped" style={tab_style} icon={<LocalShippingIcon fontSize='small'/>} />
                                           <Tab label="Received" style={tab_style} icon={<CheckCircleIcon fontSize='small'/>}  />
-                                          <Tab label="Canclled" style={tab_style} icon={<CancelIcon fontSize='small'/>}/>
+                                          <Tab label="Canceled" style={tab_style} icon={<CancelIcon fontSize='small'/>}/>
 
                                       </Tabs>
                               </Paper>

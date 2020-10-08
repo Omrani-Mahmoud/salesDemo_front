@@ -1,7 +1,7 @@
 import React from 'react'
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
-import { Button, Checkbox, TextField, Typography } from '@material-ui/core';
+import { Button, Checkbox, FormHelperText, Switch, TextField, Typography } from '@material-ui/core';
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
@@ -36,6 +36,14 @@ function StoreSettings(props) {
                 Store settings
         </Typography>
 
+        <FormControl component="fieldset" style={{padding:'10px'}}>
+        <FormControlLabel
+          control={<Switch  color='primary' onChange={(e,data)=>props.handleChange('global_config',data)} name="global_config" />}
+          label="Global Store Settings"
+          labelPlacement="end"
+          style={{color:'#303030',opacity:'60%'}}
+        />
+    </FormControl>
                 <Grid item xs={12} md={12} style={{marginBottom:'10px'}}>
                     <Paper elevation={1} style={{padding:'10px'}}>
                     <FormControl component="fieldset" style={{padding:'10px'}}>
@@ -45,6 +53,10 @@ function StoreSettings(props) {
                             <FormControlLabel  value="manual" control={<Radio color='default' size='small' />} label="Manual" />
                         </RadioGroup>
                     </FormControl>
+                    <section hidden={props.storeSettings.fulfillment_processing==='automatic'?false:true}> 
+                        <Grid item sm={3} xs={6} ><span style={{fontSize:'11px',color:'#303030',opacity:'40%'}}>Orders will be processed every period choose</span></Grid> 
+                        <TextField id="outlined-basic" type='number' placeholder='0 days' variant="outlined"size="small" onChange={(e)=>props.handleChange('days',e.target.value)}/>
+                    </section>
                     </Paper>
                 </Grid>
                 <Grid item xs={12} md={12} style={{marginBottom:'10px'}}>
@@ -67,10 +79,10 @@ function StoreSettings(props) {
                     value="bottom"
                     control={<Checkbox color="default" size='small' />}
                     label="Limit total charges each day"
-                    onChange={(e,data)=>props.handleChange('isChecked',data)}
+                    onChange={(e,data)=>props.handleChange('isChecked_charge_limit',data)}
                     />
                 </FormControl>
-                <section hidden={!props.storeSettings.isChecked}> 
+                <section hidden={!props.storeSettings.isChecked_charge_limit}> 
                    <Grid item sm={3} xs={6} ><span style={{fontSize:'11px',color:'#303030',opacity:'40%'}}>You can enforce a limit on the amount you are charged seiler fees for orders each day</span></Grid> 
                 <TextField id="outlined-basic" type='number' placeholder='0$' variant="outlined"size="small" onChange={(e)=>props.handleChange('daily_charge_limit',e.target.value)}/>
                 </section>
