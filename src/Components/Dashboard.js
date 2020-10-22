@@ -86,8 +86,12 @@ const useStyles = makeStyles((theme) => ({
     borderLeftColor:'transparent'
   },
 }));
+
+export const ActiveStoreContext = React.createContext('');
+
 function Dashboard(props) {
 
+  const [activeStore, setactiveStore] = React.useState('My first store');
   const { window } = props;
   const classes = useStyles();
   const theme = useTheme();
@@ -133,6 +137,8 @@ function Dashboard(props) {
   }, [])
 
     return (
+  
+      <ActiveStoreContext.Provider value={[activeStore,setactiveStore]}>
         <div className={classes.root}>
         <CssBaseline />
         <AppBar position="fixed" className={classes.appBar}>
@@ -203,6 +209,8 @@ function Dashboard(props) {
       </main>
 
       </div>
+      </ActiveStoreContext.Provider>
+
     );
   }
 

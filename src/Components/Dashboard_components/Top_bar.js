@@ -11,6 +11,9 @@ import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import { Link } from 'react-router-dom';
+
+import {ActiveStoreContext} from '../Dashboard';
+
 const useStyles = makeStyles((theme) => ({
     formControl: {
       margin: theme.spacing(1),
@@ -43,7 +46,7 @@ const useStyles = makeStyles((theme) => ({
 function Top_bar({isMobile}) {
     const classes = useStyles();
     const [open, setOpen] = React.useState(null);
-
+    const [activeStore, setactiveStore] = React.useContext(ActiveStoreContext);
     const div_style={
         display:'flex',
         alignItems:isMobile?'':'center',
@@ -71,6 +74,13 @@ function Top_bar({isMobile}) {
         setOpen(null);
 
       };
+    const handleStoreChange = (e,data)=>{
+          setactiveStore(e.target.value)
+    } 
+
+
+    console.log('dadad',activeStore)
+
     return (
         <Grid
   container
@@ -87,18 +97,20 @@ function Top_bar({isMobile}) {
                 
                         <NativeSelect disableUnderline
                         
-                        defaultValue={10}
+
+                        defaultValue={activeStore}
                             fullWidth
                                 style={{fontSize:'13px',paddingTop:'3px'}}
                         inputProps={{
                             name: 'age',
                             id: 'age-native-helper',
                         }}
+                        onChange={(e,data)=>{handleStoreChange(e)}}
                         >
                         <option aria-label="None" value="" />
-                        <option value={10}>My first store</option>
-                        <option value={20}>Twenty</option>
-                        <option value={30}>Thirty</option>
+                        <option value={'My first store'}>My first store</option>
+                        <option value={"Mah store"}>Mah store</option>
+                        <option value={'MartechLabs store'}>MartechLabs store</option>
                         </NativeSelect>
                 </FormControl>
                 {

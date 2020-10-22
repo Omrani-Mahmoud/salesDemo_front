@@ -16,7 +16,8 @@ import Button from '@material-ui/core/Button';
 import { Icon } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
 import Store_FormContainer from './components/Form/Store_FormContainer';
-
+import SettingsIcon from '@material-ui/icons/Settings';
+import { Link } from 'react-router-dom';
 const useStyles = makeStyles({
     table: {
       minWidth: 320,
@@ -41,6 +42,17 @@ function Stores() {
         paddingLeft:'10px',
         paddingRight:'10px'
       }
+
+      const btn_style_store_settings = {
+        background: 'rgb(77,92,106)',
+        textTransform:'capitalize',
+        fontSize:'14px',
+        color:'white',
+        display:showForm?'':'none',
+        paddingLeft:'10px',
+        paddingRight:'10px',
+        float:'right'
+      }
    
     return (
         <Grid container direction="column"
@@ -51,7 +63,7 @@ function Stores() {
 <Typography variant="h4" gutterBottom style={{color:'#000',opacity:'65%'}}>
        Manage your stores
       </Typography>
-        <section style={{paddingTop:'10px'}}> 
+        <section style={{paddingTop:'10px',width:'100%'}}> 
      
 
             <Button onClick={()=>setshowForm(false)}
@@ -60,6 +72,8 @@ function Stores() {
       >
            Add store
       </Button>
+      <Link to='/home/store/settings' ><span style={{float:'right',display:'flex',alignItems:"center",color:'#303030',opacity:'70%',cursor:'pointer'}}> <SettingsIcon fontSize="small"/>Store Settings</span></Link>
+ 
         </section>
 
         <div style={{backgroundColor:showForm?'transparent':'white', width:'100%',padding:'10px',marginTop:'-10px',borderRadius:'5px',marginBottom:'10px'}} >

@@ -8,6 +8,7 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
 import { makeStyles } from '@material-ui/core/styles';
+import {ActiveStoreContext} from '../../Dashboard';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -25,6 +26,15 @@ const useStyles = makeStyles((theme) => ({
   }));
 function StoreSettings(props) {
     const classes = useStyles();
+    const [activeStore, setactiveStore] = React.useContext(ActiveStoreContext);
+    const [activeStoreValue, setactiveStoreValue] = React.useState(activeStore);
+    const handleStoreNameChnage = (value)=>{
+            setactiveStoreValue(value)
+    }
+
+    React.useEffect(() => {
+        setactiveStoreValue(activeStore)
+    }, [activeStore])
     return (
           <Grid
   container
@@ -35,7 +45,16 @@ function StoreSettings(props) {
         <Typography variant="h5" style={{marginBottom:'15px'}}>
                 Store settings
         </Typography>
+        <Grid item xs={12} md={12} style={{marginBottom:'10px'}}>
+        <Paper elevation={1} style={{padding:'15px',height:'130px'}}>
+            <FormLabel component="legend" style={{color:'#303030',opacity:'80%'}}>Store Name</FormLabel>
+            <section style={{padding:'5px',paddingTop:'10px'}}>
+                <TextField id="outlined-basic"  variant="outlined" size='small' value={activeStoreValue}  onChange={(e)=>{handleStoreNameChnage(e.target.value)}}/>
+            </section>
+            <Button variant='contained' size='small' color="primary" style={{float:'right',backgroundColor:'rgb(78,92,106)',width:'100px'}}>Save</Button>
 
+        </Paper>
+        </Grid>
         <FormControl component="fieldset" style={{padding:'10px'}}>
         <FormControlLabel
           control={<Switch  color='primary' onChange={(e,data)=>props.handleChange('global_config',data)} name="global_config" />}
