@@ -28,6 +28,7 @@ function StoreSettings(props) {
     const classes = useStyles();
     const [activeStore, setactiveStore] = React.useContext(ActiveStoreContext);
     const [activeStoreValue, setactiveStoreValue] = React.useState(activeStore);
+    const [error, seterror] = React.useState(false)
     const handleStoreNameChnage = (value)=>{
             setactiveStoreValue(value)
     }
@@ -35,6 +36,15 @@ function StoreSettings(props) {
     React.useEffect(() => {
         setactiveStoreValue(activeStore)
     }, [activeStore])
+
+    const verifDays = (val)=>{
+        if(val<2){
+            seterror(true);
+        }
+        else
+            seterror(false);
+    }
+
     return (
           <Grid
   container
@@ -68,13 +78,13 @@ function StoreSettings(props) {
                     <FormControl component="fieldset" style={{padding:'10px'}}>
                         <FormLabel component="legend" style={{color:'#303030',opacity:'80%'}}>Fulfillment processing</FormLabel>
                         <RadioGroup aria-label="gender" name="gender1" onChange={(e)=>props.handleChange('fulf_proc',e.target.value)} value={props.storeSettings.fulfillment_processing}>
-                            <FormControlLabel  value="automatic" control={<Radio color='default' size='small' />} label="Automatic" />
+    <section><FormControlLabel  value="automatic" control={<Radio color='default' size='small' />} label="Automatic" />{props.storeSettings.fulfillment_processing==='automatic' && <span style={{fontSize:'11px',color:'#303030',opacity:'40%'}}><b>Daily processing ( every 24 hours )</b></span>}</section>
                             <FormControlLabel  value="manual" control={<Radio color='default' size='small' />} label="Manual" />
                         </RadioGroup>
                     </FormControl>
                     <section hidden={props.storeSettings.fulfillment_processing==='automatic'?false:true}> 
-                        <Grid item sm={3} xs={6} ><span style={{fontSize:'11px',color:'#303030',opacity:'40%'}}>Orders will be processed every period choose</span></Grid> 
-                        <TextField id="outlined-basic" type='number' placeholder='0 days' variant="outlined"size="small" onChange={(e)=>props.handleChange('days',e.target.value)}/>
+                        <Grid item sm={3} xs={6} ><span style={{fontSize:'11px',color:'#303030',opacity:'40%'}}>To customize orders processing, please choose your custom period</span></Grid> 
+                        <TextField error={error} id="outlined-basic" type='number'  placeholder='0 days' variant="outlined"size="small" onChange={(e)=>{props.handleChange('days',e.target.value);verifDays(e.target.value)}}/>
                     </section>
                     </Paper>
                 </Grid>
