@@ -90,7 +90,7 @@ function Sidebar(props) {
         </div>
       {/* <Divider /> */}
       <List style={{marginTop:'20px',padding:'15px',color:'#303030'}}>
-        {[{name:'Dashboard',icon:<DashboardIcon fontSize='small'/>}, {name:'Orders',icon:<ShoppingCartIcon fontSize='small'/>}, {name:'Products',icon:<LocalOfferIcon fontSize='small' />}, {name:'Integrations',icon:<AccountTreeIcon fontSize='small' />},{name:'Stores',icon:<StoreIcon fontSize='small' />},{name:'Offers',icon:<AttachMoneyIcon fontSize='small' />}].map((object) => (
+        {[{name:'Dashboard',icon:<DashboardIcon fontSize='small'/>}, {name:'Orders',icon:<ShoppingCartIcon fontSize='small'/>}, {name:'Products',icon:<LocalOfferIcon fontSize='small' />},{name:'Matching Products',icon:<LocalOfferIcon fontSize='small' />}, {name:'Integrations',icon:<AccountTreeIcon fontSize='small' />},{name:'Stores',icon:<StoreIcon fontSize='small' />},{name:'Offers',icon:<AttachMoneyIcon fontSize='small' />}].map((object) => (
           <ListItem button key={object.name}>
             <ListItemIcon>{object.icon}</ListItemIcon>
             <ListItemText style={{fontSize:'0rem !important'}} primary={object.name} />

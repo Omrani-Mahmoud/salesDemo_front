@@ -36,6 +36,8 @@ import { Grid } from '@material-ui/core';
 import Profile from './Account/Profile';
 import ProfileContainer from './Account/ProfileContainer';
 import StoreSettingsContainer from './Account/Store settings/StoreSettingsContainer';
+import CompareArrowsIcon from '@material-ui/icons/CompareArrows';
+import MatchingProductsContainer from './Matching/MatchingProductsContainer';
 const drawerWidth = 210;
 
 const useStyles = makeStyles((theme) => ({
@@ -114,7 +116,7 @@ function Dashboard(props) {
       {isMobile && <Divider/>}
   
       <List style={{marginTop:'20px',padding:'15px',color:'#303030'}}>
-        {[{name:'Dashboard',icon:<DashboardIcon fontSize='small'/>,path:'/home'}, {name:'Orders',icon:<ShoppingCartIcon fontSize='small'/>,path:'/home/orders'}, {name:'Products',icon:<LocalOfferIcon fontSize='small' />,path:'/home/products'}, {name:'Integrations',icon:<AccountTreeIcon fontSize='small' />,path:'/home/integrations'},{name:'Stores',icon:<StoreIcon fontSize='small' />,path:'/home/stores'},{name:'Offers',icon:<AttachMoneyIcon fontSize='small' />,path:'/home/offers'}].map((object) => (
+        {[{name:'Dashboard',icon:<DashboardIcon fontSize='small'/>,path:'/home'}, {name:'Orders',icon:<ShoppingCartIcon fontSize='small'/>,path:'/home/orders'}, {name:'Products',icon:<LocalOfferIcon fontSize='small' />,path:'/home/products'}, {name:'Matching Products',icon:<CompareArrowsIcon fontSize='default' />,path:'/home/matching'},{name:'Integrations',icon:<AccountTreeIcon fontSize='small' />,path:'/home/integrations'},{name:'Stores',icon:<StoreIcon fontSize='small' />,path:'/home/stores'},{name:'Offers',icon:<AttachMoneyIcon fontSize='small' />,path:'/home/offers'}].map((object) => (
           <Link to={object.path} className='dash_links' key={object.name}>
             <ListItem button key={object.name}>
             <ListItemIcon>{object.icon}</ListItemIcon>
@@ -201,6 +203,7 @@ function Dashboard(props) {
               <Route  path='/home/integrations' component={Shopify}/>
               <Route  path='/home/stores' component={Stores}/>
               <Route  path='/home/products' component={ProductsContainer}/>
+              <Route  path='/home/matching' component={MatchingProductsContainer}/>
               <Route  path='/home/profile' component={ProfileContainer }/>
               <Route  path='/home/store/settings' component={StoreSettingsContainer }/>
               {/* <Route exact path='/home' component={}/> */}
