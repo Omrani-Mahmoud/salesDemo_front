@@ -107,7 +107,7 @@ function Dashboard(props) {
       <div className={classes.toolbar} />
       <div className={classes.drawerHeader}>
       <Typography variant="h6" style={{color:'#333'}}>
-            Logistio
+            WebApp
           </Typography>
         </div>
         <div hidden={!isMobile}>

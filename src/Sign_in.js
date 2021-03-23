@@ -40,9 +40,9 @@ function Copyright() {
 
   return (
     <Typography variant="body2" color="textPrimary" align="center">
-      {'Copyright © MartechLabs '}
+      {'Copyright © Mah '}
       <Link color="inherit" href="#">
-        Logistio
+        Sales APP
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
