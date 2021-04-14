@@ -51,7 +51,12 @@ function MatchProducts({data1,data2,typeHandler,type,children,newMatch,pushProdu
 
 
   return (
-    <div >
+<Grid
+  container
+  direction="row"
+  justify="flex-start"
+  alignItems="center"
+>
        <FormControl className={classes.formControl}>
             <InputLabel >Fulfillment type</InputLabel>
             <Select
@@ -70,7 +75,7 @@ function MatchProducts({data1,data2,typeHandler,type,children,newMatch,pushProdu
             list.length>0 && children
           }
           
-        <div style={{display:'flex'}}>
+        <div style={{display:'flex',width:'100%'}}>
          
           <Grid item xs={12} md={6} style={cardPadding}>
               <Card className={classes.root} variant="outlined">
@@ -89,7 +94,7 @@ function MatchProducts({data1,data2,typeHandler,type,children,newMatch,pushProdu
                 
               </Card>
           </Grid>
-          <Grid item xs={12} md={6} style={cardPadding}>
+          <Grid item xs={6} md={6} style={cardPadding}>
               <Card className={classes.root} variant="outlined">
                   <CardContent>
                     <Typography className={classes.title} color="textSecondary" gutterBottom>
@@ -107,7 +112,7 @@ function MatchProducts({data1,data2,typeHandler,type,children,newMatch,pushProdu
               </Card>
           </Grid>
         </div>
-    </div>
+    </Grid>
   )
 }
 
