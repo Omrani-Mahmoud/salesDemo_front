@@ -50,8 +50,13 @@ function Home() {
 
 
                      <span style={{fontSize:'14px',color:'#303030',fontWeight:'bold',marginBottom:'20px',marginTop:'20px',opacity:'50%',display:'flex',alignItems:'center'}}>Your current expenses : CNY 50.0 <ImportExportIcon style={{fontSize:'20px'}} /></span>
-                <Grid item  md={12} xs={12} style={{display:'flex',justifyContent:'space-around',marginBottom:'15px'}}>
-
+                     <Grid
+  container
+  direction="row"
+  justify="space-around"
+  alignItems="center"
+  style={{marginBottom:'10px'}}
+>
                     
                         <Dash_Card  icon={<ArchiveIcon fontSize='large' style={{color:'#eddd8c',fontSize:'40px'}}/>} title={'Products number'} data={41}/>
                         <Dash_Card  icon={<LocalAtmIcon color='action' style={{color:'#85bb65',fontSize:'40px'}}/>} title={'Revenue'} data={'283$'}/>
@@ -68,6 +73,7 @@ function Home() {
                         height='180px'
                         data={data}
                         options={{
+                            responsive:true,
                             maintainAspectRatio : false,
                             scales : {
                                 xAxes : [ {
@@ -98,7 +104,7 @@ function Home() {
                               
                 </Grid>
              
-                <Grid md={12} xs={12} style={{display:'flex',justifyContent:'center',alignItems:'center',flexDirection:"column"}} >
+                <Grid md={12} xs={12}  >
                 
                     <Carousel_ />
                 </Grid>

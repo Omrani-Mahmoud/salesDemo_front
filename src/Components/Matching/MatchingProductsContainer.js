@@ -1,3 +1,4 @@
+import { Grid } from '@material-ui/core';
 import React from 'react'
 import WantedProductList from './components/WantedProductList';
 import MatchProducts from './MatchProducts'
@@ -51,11 +52,15 @@ function MatchingProductsContainer() {
 
       
     return (
-        <div>
-            <MatchProducts data1={data1} data2={data2} typeHandler={handleChangeType} type={type}  pushProduct1={topushProduct1} pushProduct2={topushProduct2} list={wantedList}>
+<Grid
+  container
+  direction="row"
+  justify="flex-start"
+  alignItems="center"
+>            <MatchProducts data1={data1} data2={data2} typeHandler={handleChangeType} type={type}  pushProduct1={topushProduct1} pushProduct2={topushProduct2} list={wantedList}>
                 <WantedProductList wantedList={wantedList} newMatch={newMatch}/>
             </MatchProducts>
-        </div>
+        </Grid>
     )
 }
 

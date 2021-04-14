@@ -21,13 +21,14 @@ const useStyles = makeStyles((theme) => ({
     large: {
       width: theme.spacing(13),
       height: theme.spacing(13),
+      objectFit:'contain'
     },
   }));
 function Carousel_card(props) {
     const classes = useStyles();
 
     return (
-        <Grid item xs={12} md={4} style={{marginRight:'5px',padding:'10px',width:'35%'}}>
+        <Grid item xs={12} md={3} style={{marginRight:'5px',padding:'10px'}}>
             <Paper>
             <Grid
                 item

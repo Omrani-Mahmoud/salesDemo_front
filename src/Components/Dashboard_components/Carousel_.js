@@ -28,11 +28,11 @@ const [res, setres] = useState([]);
 const tab =[  <Carousel_card id={1} data={{img:'https://static.pullandbear.net/2/photos//2020/V/0/2/p/5234/778/250/5234778250_2_6_8.jpg?t=1589274635711&imwidth=1100',name:'T-shirt R & M',cart:34324}}/>,
               <Carousel_card id={2} data={{img:'https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/MR6E2?wid=2000&hei=2000&fmt=jpeg&qlt=95&op_usm=0.5,0.5&.v=1511994825437',name:'Iphone X case ',cart:4324}}/>,
               <Carousel_card id={3} data={{img:'https://img.phonandroid.com/2019/10/razer-hammerhead-true-wireless-2.jpg',name:'Razer Airpods',cart:24}}/>,
+              <Carousel_card id={6} data={{img:'https://img.phonandroid.com/2019/10/razer-hammerhead-true-wireless-2.jpg',name:'Razer Airpods',cart:24}}/>,
               <Carousel_card id={4} data={{img:'https://static.pullandbear.net/2/photos//2020/V/0/2/p/5234/778/250/5234778250_2_6_8.jpg?t=1589274635711&imwidth=1100',name:'T-shirt R & M',cart:34324}}/>,
               <Carousel_card id={5} data={{img:'https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/MR6E2?wid=2000&hei=2000&fmt=jpeg&qlt=95&op_usm=0.5,0.5&.v=1511994825437',name:'Iphone X case ',cart:4324}}/>,
-              <Carousel_card id={6} data={{img:'https://img.phonandroid.com/2019/10/razer-hammerhead-true-wireless-2.jpg',name:'Razer Airpods',cart:24}}/>,
-              <Carousel_card id={7} data={{img:'https://static.pullandbear.net/2/photos//2020/V/0/2/p/5234/778/250/5234778250_2_6_8.jpg?t=1589274635711&imwidth=1100',name:'T-shirt R & M',cart:34324}}/>,
               <Carousel_card id={8} data={{img:'https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/MR6E2?wid=2000&hei=2000&fmt=jpeg&qlt=95&op_usm=0.5,0.5&.v=1511994825437',name:'Iphone X case ',cart:4324}}/>,
+              <Carousel_card id={7} data={{img:'https://static.pullandbear.net/2/photos//2020/V/0/2/p/5234/778/250/5234778250_2_6_8.jpg?t=1589274635711&imwidth=1100',name:'T-shirt R & M',cart:34324}}/>,
               <Carousel_card id={9} data={{img:'https://img.phonandroid.com/2019/10/razer-hammerhead-true-wireless-2.jpg',name:'Razer Airpods',cart:24}}/>,
               <Carousel_card id={10} data={{img:'https://static.pullandbear.net/2/photos//2020/V/0/2/p/5234/778/250/5234778250_2_6_8.jpg?t=1589274635711&imwidth=1100',name:'T-shirt R & M',cart:34324}}/>,
               <Carousel_card id={12} data={{img:'https://img.phonandroid.com/2019/10/razer-hammerhead-true-wireless-2.jpg',name:'Razer Airpods',cart:24}}/>,
@@ -113,9 +113,16 @@ const tab =[  <Carousel_card id={1} data={{img:'https://static.pullandbear.net/2
       <IconButton   size='small' className={classes.button} onClick={prevIndext} disabled={activeIndex===0}>
           <NavigateBeforeIcon fontSize="small" />
       </IconButton>
+      <Grid
+  container
+  direction="row"
+  justify="center"
+  alignItems="center"
+>
       {
         res
       }
+      </Grid>
       <IconButton  size='small' className={classes.button} onClick={nextIndext} disabled={activeIndex>=tab.length-3}>
           <NavigateNextIcon fontSize="small" />
       </IconButton>

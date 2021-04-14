@@ -90,7 +90,7 @@ function Top_bar({isMobile}) {
 >
                 <div style={div_style}>
 
-                <InputLabel style={{color:'#303030',opacity:'80%',fontSize:'15px',marginTop:'-2px'}}>Current store :</InputLabel>
+                {/* <InputLabel style={{color:'#303030',opacity:'80%',fontSize:'15px',marginTop:'-2px'}}>Current store :</InputLabel> */}
 
               
                 <FormControl className={classes.formControl} size='small'>
@@ -99,7 +99,7 @@ function Top_bar({isMobile}) {
                         
 
                         defaultValue={activeStore}
-                            fullWidth
+                            
                                 style={{fontSize:'13px',paddingTop:'3px'}}
                         inputProps={{
                             name: 'age',
